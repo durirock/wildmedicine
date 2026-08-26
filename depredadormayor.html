@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>El Depredador Mayor de la Cordillera — Wild Medicine Magazine</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Italiana&family=Space+Mono:wght@400;700&display=swap');
+
+  :root{
+    --void: #0a0908;
+    --void-2: #12100d;
+    --parchment: #ece3d1;
+    --parchment-dim: #cfc4ab;
+    --gold: #c9a648;
+    --gold-dim: #8f7736;
+    --cyan: #6fb8ab;
+    --line: rgba(201,166,72,0.22);
+  }
+
+  *{ box-sizing: border-box; }
+
+  body{
+    margin: 0;
+    background:
+      radial-gradient(ellipse at 50% -10%, #1b1712 0%, var(--void) 55%),
+      var(--void);
+    color: var(--parchment);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 19px;
+    line-height: 1.7;
+  }
+
+  a{ color: var(--cyan); }
+
+  .masthead{
+    text-align: center;
+    padding: 46px 20px 20px;
+    border-bottom: 1px solid var(--line);
+  }
+  .masthead .kicker{
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.85;
+  }
+  .masthead h1.brand{
+    font-family: 'Italiana', serif;
+    font-size: clamp(28px, 5vw, 46px);
+    letter-spacing: 0.05em;
+    margin: 10px 0 2px;
+    color: var(--parchment);
+  }
+  .masthead .sub-brand{
+    font-family: 'Space Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.2em;
+    color: var(--parchment-dim);
+    text-transform: uppercase;
+    opacity: 0.7;
+  }
+
+  .divider{
+    display: flex;
+    justify-content: center;
+    margin: 34px auto;
+    opacity: 0.7;
+  }
+
+  article{
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 22px 100px;
+  }
+
+  .section-label{
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin: 54px 0 10px;
+  }
+
+  h2.headline{
+    font-family: 'Italiana', serif;
+    font-weight: 400;
+    font-size: clamp(30px, 6vw, 44px);
+    line-height: 1.15;
+    margin: 6px 0 6px;
+    color: var(--parchment);
+  }
+
+  .deck{
+    font-style: italic;
+    color: var(--parchment-dim);
+    font-size: 20px;
+    margin: 14px 0 22px;
+    border-left: 2px solid var(--gold-dim);
+    padding-left: 16px;
+  }
+
+  .byline{
+    font-family: 'Space Mono', monospace;
+    font-size: 11.5px;
+    letter-spacing: 0.05em;
+    color: var(--parchment-dim);
+    text-transform: uppercase;
+    margin-bottom: 40px;
+  }
+  .byline span{ color: var(--cyan); }
+
+  h3{
+    font-family: 'Italiana', serif;
+    font-weight: 400;
+    font-size: 26px;
+    color: var(--gold);
+    margin: 44px 0 12px;
+    letter-spacing: 0.01em;
+  }
+
+  p{ margin: 0 0 20px; color: var(--parchment); }
+  p.lead::first-letter{
+    font-family: 'Italiana', serif;
+    font-size: 3.4em;
+    float: left;
+    line-height: 0.8;
+    padding: 6px 8px 0 0;
+    color: var(--gold);
+  }
+
+  .pull-quote{
+    font-family: 'Italiana', serif;
+    font-style: italic;
+    font-size: 27px;
+    line-height: 1.4;
+    color: var(--parchment);
+    text-align: center;
+    margin: 46px auto;
+    max-width: 560px;
+    position: relative;
+  }
+  .pull-quote::before, .pull-quote::after{
+    content: '';
+    display: block;
+    width: 60px;
+    height: 1px;
+    background: var(--gold-dim);
+    margin: 18px auto;
+  }
+
+  .caption-figure{
+    margin: 36px 0;
+    text-align: center;
+  }
+  .caption-figure img{
+    max-width: 100%;
+    border: 1px solid var(--line);
+    filter: sepia(0.15) contrast(1.02);
+  }
+  .caption-figure figcaption{
+    font-family: 'Space Mono', monospace;
+    font-size: 11.5px;
+    color: var(--parchment-dim);
+    margin-top: 10px;
+    line-height: 1.6;
+  }
+
+  .footnote-block{
+    background: rgba(201,166,72,0.05);
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    padding: 18px 20px;
+    font-size: 15.5px;
+    color: var(--parchment-dim);
+    margin: 30px 0;
+  }
+  .footnote-block .fn-label{
+    font-family: 'Space Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  .game-frame{
+    margin: 40px 0;
+    border: 1px solid var(--line);
+    background: var(--void-2);
+    padding: 18px;
+    border-radius: 3px;
+  }
+  .game-frame .frame-label{
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .game-frame .frame-label small{
+    color: var(--parchment-dim);
+    text-transform: none;
+    letter-spacing: normal;
+    font-size: 11px;
+  }
+  .game-frame iframe{
+    width: 100%;
+    height: 480px;
+    border: none;
+    background: #d8ecf5;
+    display: block;
+  }
+  .game-frame .frame-caption{
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    color: var(--parchment-dim);
+    margin-top: 12px;
+    line-height: 1.6;
+  }
+
+  .field-sim{
+    margin: 40px 0;
+    padding: 22px 24px;
+    border: 1px solid var(--line);
+    background: linear-gradient(160deg, rgba(111,184,171,0.06), rgba(201,166,72,0.04));
+    border-radius: 3px;
+  }
+  .field-sim h4{
+    font-family: 'Italiana', serif;
+    font-weight: 400;
+    color: var(--cyan);
+    font-size: 22px;
+    margin: 0 0 8px;
+  }
+  .field-sim p{ font-size: 17.5px; color: var(--parchment-dim); margin-bottom: 14px; }
+  .field-sim a.cta{
+    display: inline-block;
+    font-family: 'Space Mono', monospace;
+    font-size: 12.5px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--void);
+    background: var(--cyan);
+    padding: 10px 18px;
+    border-radius: 2px;
+    text-decoration: none;
+  }
+
+  .methodology{
+    margin-top: 60px;
+    padding-top: 24px;
+    border-top: 1px solid var(--line);
+    font-size: 15px;
+    color: var(--parchment-dim);
+    font-family: 'Space Mono', monospace;
+    line-height: 1.9;
+  }
+  .methodology .fn-label{
+    display: block;
+    color: var(--gold);
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  footer{
+    text-align: center;
+    padding: 30px 20px 60px;
+    font-family: 'Space Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--parchment-dim);
+    opacity: 0.6;
+  }
+
+  ul.ref-list{
+    padding-left: 22px;
+    font-size: 17px;
+    color: var(--parchment-dim);
+  }
+  ul.ref-list li{ margin-bottom: 10px; }
+</style>
+</head>
+<body>
+
+<div class="masthead">
+  <div class="kicker">Revista Pulmón Verde &middot; Departamento de Etnobiología y Psiquiatría Evolutiva</div>
+  <h1 class="brand">Wild Medicine</h1>
+  <div class="sub-brand">Chamalnquimyst Labs — Ciencia de campo, cosmovisión y neuroética</div>
+</div>
+
+<div class="divider">
+  <svg width="140" height="28" viewBox="0 0 140 28" xmlns="http://www.w3.org/2000/svg">
+    <line x1="0" y1="14" x2="55" y2="14" stroke="#8f7736" stroke-width="1"/>
+    <circle cx="70" cy="14" r="6" fill="none" stroke="#c9a648" stroke-width="1.2"/>
+    <circle cx="70" cy="14" r="2" fill="#c9a648"/>
+    <line x1="85" y1="14" x2="140" y2="14" stroke="#8f7736" stroke-width="1"/>
+  </svg>
+</div>
+
+<article>
+
+  <div class="section-label">Terreno &middot; Cordillera de los Andes</div>
+  <h2 class="headline">El depredador mayor que nunca dejó de vigilarnos</h2>
+  <p class="deck">Un nicho ecológico vacío desde el Pleistoceno tardío, y una cordillera de 7.000 kilómetros — de la Patagonia a Colombia — donde el registro oral insiste en que alguien lo ocupó.</p>
+  <div class="byline">Redacción Wild Medicine <span>&middot;</span> con notas de campo de Chamalnquimyst Labs SpA</div>
+
+  <p class="lead">Todo cordón montañoso tiene un vértice más alto que el resto, y —según la tradición de quienes viven bajo su sombra— un guardián que no baja a menudo. En los Andes ese guardián no tiene un solo nombre: cambia con la lengua y la altura, pero la función que se le atribuye es sorprendentemente estable de extremo a extremo del continente. No custodia un tesoro. Custodia una población. La nuestra.</p>
+
+  <p>La hipótesis de trabajo de este número —y lo decimos con la seriedad exacta que merece, ni más ni menos— es que el mito del "hombre de las nieves" andino no es una anomalía folclórica aislada, sino la persistencia cultural de algo mucho más antiguo y mucho mejor documentado: el miedo, profundamente cableado, a compartir el territorio con algo más grande, más fuerte y más paciente que nosotros.</p>
+
+  <div class="pull-quote">"El bosque no le teme al Yeti. El Yeti es, simplemente, la forma que el bosque le puso al miedo que ya estaba ahí."</div>
+
+  <h3>Un nicho que quedó vacío demasiado rápido</h3>
+  <p>Durante casi todo el tiempo que el género <em>Homo</em> lleva caminando erguido, no fuimos la especie dominante de nuestro propio paisaje. Compartimos el continente americano con felinos de más de 300 kilos, osos de morro corto capaces de superar los tres metros de altura y manadas que nos veían, con toda razón, como una fuente de proteína más entre otras. La extinción megafaunística de fines del Pleistoceno —debatida aún entre climática y antrópica— vació ese nicho en un abrir y cerrar de ojos evolutivo. Pero el sistema nervioso que se formó bajo esa presión no se vació con él.</p>
+
+  <p>La psiquiatría evolutiva tiene un nombre poco romántico para esto: <em>preparedness</em>, o "disposición preparada" — la idea, propuesta por Seligman y desarrollada ampliamente desde entonces, de que no todos los miedos se aprenden igual de fácil. Aprendemos a temerle a una serpiente, a la oscuridad de un bosque cerrado o a una figura grande que se mueve entre los árboles con muchísima más facilidad y persistencia que a un enchufe eléctrico o un auto —a pesar de que estos últimos nos matan, estadísticamente, mucho más seguido. El circuito ya viene precargado. Solo espera un estímulo que se le parezca.</p>
+
+  <div class="footnote-block">
+    <span class="fn-label">Nota de campo</span>
+    Isbell (2006) documentó algo equivalente con las serpientes: propuso que la agudeza visual primate se desarrolló en buena parte como sistema de detección temprana de depredadores reptantes. El mismo principio —un sesgo atencional heredado, no aprendido de cero en cada generación— es la base sobre la que se apoya buena parte de la literatura sobre miedo a grandes carnívoros terrestres.
+  </div>
+
+  <h3>La amígdala no sabe que el oso de morro corto se extinguió</h3>
+  <p>Cuando algo grande, oscuro y erguido se mueve al borde del campo visual, la amígdala responde antes de que la corteza prefrontal termine de formular la pregunta "¿esto es peligroso?". Es una arquitectura de decisión asimétrica a propósito: el costo de una falsa alarma (correr sin necesidad) es bajísimo comparado con el costo de no reaccionar ante un depredador real. Ese sesgo —barato de activar, carísimo de ignorar— es exactamente el que explotan, sin saberlo, todas las siluetas grandes, peludas y bípedas que la imaginación humana ha producido en cada cordillera del planeta: el Yeti del Himalaya, el Sasquatch de la costa noroeste de Norteamérica, el Mapinguari amazónico, y sí, el guardián de los Andes.</p>
+
+  <p>No hace falta haber visto nunca a uno para temerle correctamente. Basta con haber heredado, generación tras generación, el circuito de quienes sí convivieron con algo parecido.</p>
+
+  <h3>SkiFree, o cómo el inconsciente se coló en un juego de Windows 3.1</h3>
+  <p>Hay un experimento involuntario de psicología popular que ilustra esto mejor que cualquier paper: en 1991, el programador Chris Pirih diseñó <em>SkiFree</em>, un juego casual de esquí incluido en el Microsoft Entertainment Pack. El objetivo declarado era simple —esquiar, esquivar árboles, sumar distancia—. Pero a los 2.000 metros, sin aviso ni narrativa previa, aparecía en pantalla un yeti que perseguía al esquiador a una velocidad imposible de mantener indefinidamente, y que —tarde o temprano, sin excepción— terminaba por alcanzarlo y comérselo.</p>
+
+  <figure class="caption-figure">
+    <img src="skifree-reference.png" alt="Captura del juego SkiFree mostrando al esquiador y al yeti apareciendo en la ladera">
+    <figcaption>Fig. 1 — SkiFree (Chris Pirih, 1991). El yeti no figuraba en las instrucciones del juego. Millones de jugadores lo descubrieron de la peor manera posible, y ninguno lo olvidó.</figcaption>
+  </figure>
+
+  <p>Nadie le pidió a Pirih un depredador insuperable. Y sin embargo, treinta y tantos años después, <em>SkiFree</em> no se recuerda por su sistema de puntaje ni por sus gráficos de 16 colores: se recuerda casi exclusivamente por el yeti. Ese es, quizás, el dato etnográfico más honesto de todo este artículo: cuando a un sistema lúdico completamente arbitrario se le agrega un depredador mayor que <em>siempre</em> alcanza a su presa, la memoria colectiva lo adopta como el corazón del juego. No hacía falta que fuera realista. Hacía falta que fuera inevitable — que es, exactamente, la cualidad que la amígdala de nuestros ancestros aprendió a temerle más que a la muerte rápida: la persecución de la que no se puede escapar del todo.</p>
+
+  <div class="game-frame">
+    <div class="frame-label">
+      SkiFree — reconstrucción en JavaScript (Chris Pirih / Dan Hough, licencia MIT)
+      <small>emulador embebido — jugable en el navegador</small>
+    </div>
+    <iframe src="https://basicallydan.github.io/skifree.js/" loading="lazy" title="SkiFree jugable embebido"></iframe>
+    <div class="frame-caption">Si el depredador no aparece de inmediato: esa es exactamente la idea. Seguí esquiando. En algún punto, aparece.<br>Puerto abierto del código original — <a href="https://github.com/basicallydan/skifree.js" target="_blank" rel="noopener">basicallydan/skifree.js</a>, distribuido bajo licencia MIT.</div>
+  </div>
+
+  <h3>Del esquiador de pixeles al bosque real</h3>
+  <p>La diferencia entre <em>SkiFree</em> y el guardián andino no es de sustancia, es de escala. Uno es una anécdota de software; el otro, una figura que ha ocupado —con variaciones locales pero con una función notablemente constante— el imaginario de comunidades separadas por miles de kilómetros de cordillera, desde los relatos patagónicos de un ser solitario de las alturas hasta homólogos descritos en distintas cosmovisiones a lo largo de la cadena andina hasta Colombia. En ninguno de los dos casos hace falta que el depredador exista para que cumpla su función psíquica: recordarnos, con la eficacia que solo un miedo antiguo tiene, que no somos la cima automática de ningún ecosistema — que alguien, en algún punto de la ladera, todavía nos mira pastar.</p>
+
+  <div class="field-sim">
+    <h4>Simulación de campo — perspectiva invertida</h4>
+    <p>Como ejercicio conceptual complementario a este artículo, Chamalnquimyst Labs desarrolló un modelo conductual simplificado donde el usuario ocupa, por una vez, el rol del depredador: pastorea, atrae y regula una población humana que se comporta con la dinámica de manada descrita más arriba —incluida la organización defensiva cuando el grupo se siente amenazado en número—. No es un dato científico. Es, en el sentido más literal, un juego intelectual: una forma de sentir desde adentro la lógica que el resto del artículo describe desde afuera.</p>
+    <a class="cta" href="https://durirock.github.com/juegos/yetisexy2.html" target="_blank" rel="noopener">Abrir el simulador de campo →</a>
+  </div>
+
+  <h3>Cierre de campo</h3>
+  <p>No hace falta resolver si el guardián de la cordillera existe para que la pregunta siga siendo útil. La psiquiatría evolutiva no necesita que el depredador sea real para explicar por qué seguimos, todos, mirando dos veces hacia el borde oscuro del bosque antes de entrar. El mito es el fósil; el miedo es el hueso que todavía funciona.</p>
+
+  <div class="methodology">
+    <span class="fn-label">Nota metodológica</span>
+    Este artículo combina literatura real de psiquiatría evolutiva y psicología del miedo (teoría de la disposición preparada de Seligman, hipótesis de detección de depredadores de Isbell, asimetría de costos en la respuesta de amígdala) con una figura de cordillera —el "depredador mayor" andino— tratada aquí como caso de estudio especulativo y ejercicio de escritura, no como reporte de campo verificado ni como afirmación criptozoológica literal. El tono documental es deliberado: es el género en el que este número de la revista decidió pensar el problema, no una garantía de sus contenidos.
+  </div>
+
+</article>
+
+<footer>
+  Wild Medicine Magazine — Fundación Pulmón Verde / Chamalnquimyst Labs SpA
+</footer>
+
+</body>
+</html>
